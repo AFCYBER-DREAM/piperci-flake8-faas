@@ -1,0 +1,5 @@
+PyYAML
+requests
+flake8
+minio
+pipercilib@git+https://github.com/afcyber-dream/python-piperci.git

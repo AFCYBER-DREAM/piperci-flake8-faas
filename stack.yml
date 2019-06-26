@@ -1,0 +1,23 @@
+---
+provider:
+  name: faas
+  gateway: http://127.0.0.1:8080
+functions:
+  piperci-flake8-gateway:
+    environment:
+      write_debug: true
+    lang: python3-flask
+    handler: ./piperci-flake8-gateway
+    image: piperci-flake8-gateway:latest
+    secrets:
+      - storage-access-key
+      - storage-secret-key
+  piperci-flake8-executor:
+    environment:
+      write_debug: true
+    lang: python3-flask
+    handler: ./piperci-flake8-executor
+    image: piperci-flake8-executor:latest
+    secrets:
+      - storage-access-key
+      - storage-secret-key

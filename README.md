@@ -1,4 +1,4 @@
-PiperCI Flake8 Function-as-a-Service
+# PiperCI Flake8 Function
 [![Build Status](https://travis-ci.com/AFCYBER-DREAM/piperci-flake8-faas.svg?branch=master)](https://travis-ci.com/AFCYBER-DREAM/piperci-flake8-faas)
 
 ### Table of Contents
@@ -41,6 +41,44 @@ faas ls
 ```
 
 ## Inputs and Outputs
+
+This function expects the following JSON configuration, which will run flake8 with the
+default arguments on all files in the artifact specified by the artifact_uri field.
+
+```json
+{
+  'run_id': <string>,
+  'project': <string>,
+  'configs': [
+    {'files': '*.py'}
+  ],
+  'stage': <string>,
+  'artifacts': {
+    <string>: {
+	  'artifact_uri': <string>,
+	}
+}
+```
+
+One can optionally include the `exclude` field, which will tell flake8 to exclude a file or directory
+(a glob can also be specified). When the exclude field is present then the Flake8 FaaS will parse the
+files field and apply the exclusion to that file or glob.
+
+```json
+{
+  'run_id': <string>,
+  'project': <string>,
+  'configs': [
+    {'files': '*.py'},
+	{'files': 'charon/model/*', 'exclude': 'true'}
+  ],
+  'stage': <string>,
+  'artifacts': {
+    <string>: {
+	  'artifact_uri': <string>,
+	}
+}
+```
 
 
 ## Running the tests

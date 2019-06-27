@@ -47,15 +47,15 @@ default arguments on all files in the artifact specified by the artifact_uri fie
 
 ```json
 {
-  'run_id': <string>,
-  'project': <string>,
-  'configs': [
-    {'files': '*.py'}
+  "run_id": "<run_id>",
+  "project": "<project_name>",
+  "configs": [
+    {"files": "*.py"}
   ],
-  'stage': <string>,
-  'artifacts': {
-    <string>: {
-	  'artifact_uri': <string>,
+  "stage": "<stage_name>",
+  "artifacts": {
+    "<artifact_name>": {
+	  "artifact_uri": "<uri_for_artifact>",
 	}
 }
 ```
@@ -66,16 +66,16 @@ files field and apply the exclusion to that file or glob.
 
 ```json
 {
-  'run_id': <string>,
-  'project': <string>,
-  'configs': [
-    {'files': '*.py'},
-	{'files': 'charon/model/*', 'exclude': 'true'}
+  "run_id": "<run_id>",
+  "project": "<project_name>",
+  "configs": [
+    {"files": "*.py"},
+	{"files": "charon/model/*", "exclude": "true"}
   ],
-  'stage': <string>,
-  'artifacts': {
-    <string>: {
-	  'artifact_uri': <string>,
+  "stage": "<stage_name>",
+  "artifacts": {
+    "<artifact_name>": {
+	  "artifact_uri": "<uri_for_artifact>",
 	}
 }
 ```
